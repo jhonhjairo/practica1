@@ -1,32 +1,54 @@
-# Prerequisites
-*.d
+#include <iostream>
+#include <math.h>
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+using namespace std;
 
-# Precompiled Headers
-*.gch
-*.pch
+#include "funciones.h"
+void combinacion(*elementos, int n, int r, int y=0, int *indice=NULL){
+	if (indice==NULL){
+		indice = new int[r];
+	}
+	if (i<r){
+		for(int x=y; x<n; x++){
+			indice[i]=x;
+			combinacion(elementos,n,r,x+1,i+1,indice);
+		}
+	}else{
+		//va a imprimir la lista
+		cout<<endl;
+		for(int w=0,w<r;w++){
+		cout<<elementos[indice[w]];
+		}
+	}
+		
+}
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+int main(){
+ int arr[]={1,2,3,4,5,6,7,8,9};
+ int n,r,w, opc;
 
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+ 	do
+	{
+		system("CLS");// Limpiar pantalla -clear screen-
+	cout<<"\tBienvenido "<<endl;
+	cout<<"1.Su conjunto clausura sera de  n en n = :"<<endl;
+	cout<<"2.Salir de menu"<<endl;
+	cout<<"Opcion: "; 
+	cin>>opc;
+	
+	switch(opc){
+		case 1: cout<<"Ingresar el valor de n: "; 
+				cin>>n;
+				 cout<<"Ingresar el valor de r: ";
+				 cin>>r;
+				w=pow(n,r)
+				cout<<"El conjunto clausura es:"<<combinacion(arr,n,r)<<endl;
+				 break;
+		case 2: cout<<"¡¡Gracias por usar mi programa :D ....!!"break;
+		
+		default: cout<<"Se equivoco de opcion de menu";break;
+			}
+	}while(opc!=0);
+	cout<<"Programa finalizado..."<<endl;
+	return 0;
+}
